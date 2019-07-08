@@ -1,10 +1,5 @@
-provider "aws" {
-    region = "${var.aws_region}"
-    access_key = "${var.aws_access_key}"
-    secret_key = "${var.aws_secret_key}"
-}
 
-resource "aws_vpc" "default" {
+resource "aws_vpc" "generic" {
     cidr_block = "${var.vpc_cidr}"
     enable_dns_hostnames = true
     tags {
@@ -128,21 +123,3 @@ resource "aws_subnet" "us-east-2a-private" {
         Name = "Private Subnet"
     }
 }
-
-# resource "aws_route_table" "us-east-2a-private" {
-#     vpc_id = "${aws_vpc.default.id}"
-
-#     route {
-#         cidr_block = "0.0.0.0/0"
-#         instance_id = "${aws_instance.nat.id}"
-#     }
-
-#     tags {
-#         Name = "Private Subnet"
-#     }
-# }
-
-# resource "aws_route_table_association" "us-east-2a-private" {
-#     subnet_id = "${aws_subnet.us-east-2a-private.id}"
-#     route_table_id = "${aws_route_table.us-east-2a-private.id}"
-# }
