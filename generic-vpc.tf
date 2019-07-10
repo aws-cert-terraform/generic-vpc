@@ -10,15 +10,15 @@ resource "aws_vpc" "generic" {
     }
 }
 
-resource "aws_internet_gateway" "default" {
-    vpc_id = "${aws_vpc.default.id}"
+resource "aws_internet_gateway" "generic" {
+    vpc_id = "${aws_vpc.generic.id}"
 }
 
 /*
   Public Subnet
 */
 resource "aws_subnet" "us-east-2a-public" {
-    vpc_id = "${aws_vpc.default.id}"
+    vpc_id = "${aws_vpc.generic.id}"
 
     cidr_block = "${cidrsubnet(var.vpc_cidr, 4, 1)}"
     availability_zone = "us-east-2a"
@@ -29,11 +29,11 @@ resource "aws_subnet" "us-east-2a-public" {
 }
 
 resource "aws_route_table" "us-east-2a-public" {
-    vpc_id = "${aws_vpc.default.id}"
+    vpc_id = "${aws_vpc.generic.id}"
 
     route {
         cidr_block = "0.0.0.0/0"
-        gateway_id = "${aws_internet_gateway.default.id}"
+        gateway_id = "${aws_internet_gateway.generic.id}"
     }
 
     tags {
