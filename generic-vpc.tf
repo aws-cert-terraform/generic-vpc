@@ -17,7 +17,6 @@ resource "aws_internet_gateway" "generic" {
 */
 resource "aws_subnet" "us-east-2a-public" {
     vpc_id = "${aws_vpc.generic.id}"
-    count     = "${length(split(",", var.subnets))}"
 
     cidr_block = "${cidrsubnet(var.vpc_cidr, 4, 1)}"
     availability_zone = "us-east-2a"
