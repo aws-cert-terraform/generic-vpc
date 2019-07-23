@@ -2,6 +2,6 @@ output "vpc_id" {
     value = "${aws_vpc.generic.id}"
 }
 
-// output "vpc_id" {
-//     value = "${aws_vpc.generic.}"
-// }
+output "public_subnet" {
+    value = "${aws_subnet.us-east-2a-public.id}"
+}
