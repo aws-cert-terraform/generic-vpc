@@ -12,6 +12,10 @@ variable "azs" {
     }
 }
 
+variable "subnets" {
+    default = 1
+}
+
 variable "name" {
     default = "generic-vpc"
 }
