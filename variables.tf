@@ -12,6 +12,10 @@ variable "azs" {
     }
 }
 
+variable "max_subnets" {
+  default     = "6"
+}
+
 variable "subnets" {
     default = 1
 }

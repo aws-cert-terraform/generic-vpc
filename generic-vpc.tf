@@ -16,7 +16,7 @@ resource "aws_internet_gateway" "generic" {
 resource "aws_subnet" "us-east-2a-public" {
     vpc_id = "${aws_vpc.generic.id}"
 
-    cidr_block = "${cidrsubnet(var.vpc_cidr, 4, 2)}"
+    cidr_block = "${cidrsubnet(var.vpc_cidr, 4, 1)}"
     availability_zone = "us-east-2a"
 
     tags = {
@@ -28,7 +28,7 @@ resource "aws_subnet" "us-east-2a-public" {
 resource "aws_subnet" "us-east-2b-public" {
     vpc_id = "${aws_vpc.generic.id}"
 
-    cidr_block = "${cidrsubnet(var.vpc_cidr, 4, 4)}"
+    cidr_block = "${cidrsubnet(var.vpc_cidr, 4, 2)}"
     availability_zone = "us-east-2b"
 
     tags = {
