@@ -10,8 +10,6 @@ resource "aws_internet_gateway" "generic" {
 }
 
 
-
-
 /*
   Public Subnet
 */
@@ -22,9 +20,21 @@ resource "aws_subnet" "us-east-2a-public" {
     availability_zone = "us-east-2a"
 
     tags = {
-        Name = "Public Subnet"
+        Name = "Public Subnet 2a"
     }
 }
+
+resource "aws_subnet" "us-east-2b-public" {
+    vpc_id = "${aws_vpc.generic.id}"
+
+    cidr_block = "${cidrsubnet(var.vpc_cidr, 4, 1)}"
+    availability_zone = "us-east-2b"
+
+    tags = {
+        Name = "Public Subnet 2b"
+    }
+}
+
 
 resource "aws_route_table" "us-east-2a-public" {
     vpc_id = "${aws_vpc.generic.id}"
