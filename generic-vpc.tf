@@ -24,6 +24,7 @@ resource "aws_subnet" "us-east-2a-public" {
     }
 }
 
+
 resource "aws_subnet" "us-east-2b-public" {
     vpc_id = "${aws_vpc.generic.id}"
 

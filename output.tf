@@ -3,5 +3,8 @@ output "vpc_id" {
 }
 
 output "public_subnets" {
-    value = ["${aws_subnet.us-east-2a-public.id}", "${aws_subnet.us-east-2a-public.id}"]
+    value = {
+        "2a": aws_subnet.us-east-2a-public.id,
+        "2b": aws_subnet.us-east-2b-public.id
+    }
 }
