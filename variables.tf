@@ -20,6 +20,10 @@ variable "subnets" {
     default = 1
 }
 
+variable "tags" {
+    description = "Inherited tags. Cannot be empty for enforcement."
+}
+
 variable "name" {
     default = "generic-vpc"
 }

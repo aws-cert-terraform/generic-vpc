@@ -2,7 +2,7 @@
 resource "aws_vpc" "generic" {
     cidr_block = "${var.vpc_cidr}"
     enable_dns_hostnames = true
-
+    tags = var.tags
 }
 
 resource "aws_internet_gateway" "generic" {
@@ -19,9 +19,7 @@ resource "aws_subnet" "us-east-2a-public" {
     cidr_block = "${cidrsubnet(var.vpc_cidr, 4, 1)}"
     availability_zone = "us-east-2a"
 
-    tags = {
-        Name = "Public Subnet 2a"
-    }
+    tags = var.tags
 }
 
 
@@ -31,9 +29,7 @@ resource "aws_subnet" "us-east-2b-public" {
     cidr_block = "${cidrsubnet(var.vpc_cidr, 4, 2)}"
     availability_zone = "us-east-2b"
 
-    tags = {
-        Name = "Public Subnet 2b"
-    }
+    tags = var.tags
 }
 
 
